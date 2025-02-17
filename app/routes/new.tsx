@@ -14,7 +14,7 @@ const TemplatePreview = () => {
     showCTA: true,
     ctaText: ''
   });
-  const deployedUrl = 'https://pyjinja-poc.onrender.com'
+  const deployedUrl = 'https://pyjinja-poc.onrender.com:5000'
   const [previewUrl, setPreviewUrl] = useState(deployedUrl);
 
   useEffect(() => {
