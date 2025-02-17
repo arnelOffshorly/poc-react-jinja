@@ -14,11 +14,12 @@ const TemplatePreview = () => {
     showCTA: true,
     ctaText: ''
   });
-  const [previewUrl, setPreviewUrl] = useState('http://localhost:5000');
+  const deployedUrl = 'https://pyjinja-poc.onrender.com'
+  const [previewUrl, setPreviewUrl] = useState(deployedUrl);
 
   useEffect(() => {
     // Initialize Socket.IO connection
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io(deployedUrl);
     setSocket(newSocket);
 
     // Listen for prop updates
@@ -62,7 +63,7 @@ const TemplatePreview = () => {
 
   const saveProps = async (newProps) => {
     try {
-      await fetch('http://localhost:5000/api/props', {
+      await fetch(`${deployedUrl}/api/props`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
